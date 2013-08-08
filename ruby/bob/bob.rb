@@ -22,7 +22,7 @@ class Statement
   end
 
   def question?
-    @statement.end_with? '?'
+    @statement.end_with?('?')
   end
 
   def shout?
