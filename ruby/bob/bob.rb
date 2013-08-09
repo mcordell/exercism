@@ -30,7 +30,7 @@ class Statement
   end
 
   def nothing?
-    @statement.nil? || @statement.lstrip.empty? 
+    @statement.to_s.strip.empty?
   end 
 
 end
