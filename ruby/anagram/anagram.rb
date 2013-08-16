@@ -6,9 +6,7 @@ class Anagram
 
   def match(strings_to_test)
     strings_to_test.each_with_object([]) do |tested_string,matches|
-      tested_string.downcase!
-      tested_hash = string_to_char_hash(tested_string)
-      if tested_hash.eql?(@key_hash) and tested_string != @key_string 
+      if string_is_anagram_of_key_string?(tested_string.downcase) 
         matches.push(tested_string)
       end
     end
@@ -19,4 +17,10 @@ class Anagram
       hash[c] += 1
     end
   end
+
+  private
+    def string_is_anagram_of_key_string?(tested_string)
+        tested_hash = string_to_char_hash(tested_string)
+        tested_string != @key_string and tested_hash.eql?(@key_hash) 
+    end
 end
